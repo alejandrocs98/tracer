@@ -1,19 +1,19 @@
 /* global Promise, fetch, window, cytoscape, document, tippy, _ */
 
-// Promise.all([
-//   fetch('cy-style.json')
-//     .then(function(res) {
-//       return res.json();
-//     }),
-//   fetch('data.json')
-//     .then(function(res) {
-//       return res.json();
-//     })
-// ])
 Promise.all([
-  fetch('cy-style.json').then(res => res.json()),
-  fetch('data.json').then(res => res.json())
+  fetch('https://github.com/cytoscape/cytoscape.js/blob/master/documentation/demos/colajs-graph/cy-style.json')
+    .then(function(res) {
+      return res.json();
+    }),
+  fetch('https://github.com/cytoscape/cytoscape.js/blob/master/documentation/demos/colajs-graph/data.json')
+    .then(function(res) {
+      return res.json();
+    })
 ])
+// Promise.all([
+//   fetch('cy-style.json').then(res => res.json()),
+//   fetch('data.json').then(res => res.json())
+// ])
   .then(function(dataArray) {
     var h = function(tag, attrs, children){
       var el = document.createElement(tag);
