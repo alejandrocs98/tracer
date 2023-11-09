@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Tracer",
     "section": "",
-    "text": "Cola.js/Cytoscape.js\n    \n    \n\n    \n        \n    \n    \n\n    \n    \n    \n    \n    \n\n    \n    \n    \n    \n\n    \n    \n  \n  \n    \n\n    \n\n    \n\n      \n        Cola.js/Cytoscape.js demo\n\n        This is a demo of a graph of gene-gene interactions that uses Cola.js for layout and Cytoscape.js for its graph model and visualisation.  Use the controls below to alter the Cola.js layout parameters.\n        \n          Data by GeneMANIA\n          Visualisation by Cytoscape.js\n          Layout by Cola.js"
+    "text": "Cola.js/Cytoscape.js\n    \n    \n\n    \n        \n    \n    \n\n    \n    \n    \n    \n    \n\n    \n    \n    \n    \n\n    \n    \n    \n\n    \n        \n\n        \n          \n            Map of actors - TRACE LAC\n\n            Enhancing Tools for Response, Analytics and Control of Epidemics in Latin America and the Caribbean\n            \n              This is a Demo for Tarcer, an implementation of  this Kumo presentation\n            \n          \n\n          \n            Color by Entity Type\n            Color by Sector Type"
   },
   {
     "objectID": "about.html",
