@@ -34,22 +34,90 @@ title: "Tracer"
     <!-- <script src="code.js"></script> -->
     </head>
 
-<style>
-    #cy {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
-</style>
+    <body>
+        <div id="cy"></div>
 
-<body>
-    <div id="cy"></div>
-    <script>
-        var cy = cytoscape({
-          container: document.getElementById('cy'),
-          elements: [
+        <div id="config" class="config">
+          <div class="preamble">
+            <span class="label label-info">Map of actors - TRACE LAC</span>
+
+            <p>Enhancing Tools for Response, Analytics and Control of Epidemics in Latin America and the Caribbean</p>
+            <p>
+              This is a Demo for Tarcer, an implementation of  <a href="https://modiazv.kumu.io/map-of-actors-trace-lac?token=Hos9Oa8Jwk3Q0r1q">this Kumo presentation</a><br/>
+            </p>
+          </div>
+
+          <div id="colorButtons">
+            <button onclick="setColorBy('entity_type')">Color by Entity Type</button>
+            <button onclick="setColorBy('sector_type')">Color by Sector Type</button>
+          </div>
+
+          <div id="legend">
+            <!-- <h4>Color Legend</h4>
+            <div style="color: red;">Entidad gubernamental</div>
+            <div style="color: blue;">Entidad gubernamental de salud</div>
+            <div style="color: green;">Entidad internacional que lidera agendas en el sector</div>
+            <div style="color: magenta;">Entidad no gubernamental</div>
+            <div style="color: orange;">Entidad no gubernamental de salud</div> -->
+            <!-- Add more entries for other values or properties -->
+          </div>
+
+        </div>
+
+        <script>
+          var currentColorAttribute = 'entity_type'; // Initial color attribute
+      
+          function setColorBy(attribute) {
+            // Update current color attribute
+            currentColorAttribute = attribute;
+      
+            // Update node colors based on the selected attribute
+            updateNodeColors();
+            updateLegend();
+          }
+      
+          function updateNodeColors() {
+            // Reset node colors to gray
+            cy.nodes().style('background-color', 'gray');
+      
+            // Set node colors based on the current color attribute
+            if (currentColorAttribute === 'entity_type') {
+              cy.nodes('[entity_type="Entidad gubernamental"]').style('background-color', 'red');
+              cy.nodes('[entity_type="Entidad gubernamental de salud"]').style('background-color', 'blue');
+              cy.nodes('[entity_type="Entidad internacional que lidera agendas en el sector"]').style('background-color', 'green');
+              cy.nodes('[entity_type="Entidad no gubernamental"]').style('background-color', 'magenta');
+              cy.nodes('[entity_type="Entidad no gubernamental de salud"]').style('background-color', 'orange');
+            } else if (currentColorAttribute === 'sector_type') {
+              cy.nodes('[sector_type="Pública"]').style('background-color', 'yellow');
+              cy.nodes('[sector_type="Privada"]').style('background-color', 'brown');
+            }
+            // Add more conditions if needed for other attributes
+          }
+      
+          function updateLegend() {
+            var legendContent = ''; // Initialize legend content
+
+            // Update legend based on the current color attribute
+            if (currentColorAttribute === 'entity_type') {
+              legendContent += '<h4>Entity Type Legend</h4>';
+              legendContent += '<div style="color: red;">Entidad gubernamental</div>';
+              legendContent += '<div style="color: blue;">Entidad gubernamental de salud</div>';
+              legendContent += '<div style="color: green;">Entidad internacional que lidera agendas en el sector</div>';
+              legendContent += '<div style="color: magenta;">Entidad no gubernamental</div>';
+              legendContent += '<div style="color: orange;">Entidad no gubernamental de salud</div>';
+            } else if (currentColorAttribute === 'sector_type') {
+              // Update legend for "sector_type"
+              // (additional logic for other color attribute)
+            }
+            // Add more conditions if needed for other attributes
+
+            // Update legend content
+            document.getElementById('legend').innerHTML = legendContent;
+          }
+      
+          var cy = cytoscape({
+              container: document.getElementById('cy'),
+              elements: [
     {
         "data": {
             "id": 0,
@@ -26887,110 +26955,52 @@ title: "Tracer"
             "target": 261
         }
     }
-],
-        //     style: [
-        //         {
-        //             selector: 'node',
-        //             style: {
-        //                 shape: 'circle',
-        //                 'background-color': 'gray',
-        //                 label: 'data(name)'
-        //             }
-        //         }],
-        //         layout: {
-        //             name: 'grid'
-        //         }   
-        // });
-        // cy.layout({
-        //     name: 'cose',
-        //     animate: false,
-        //     fit: true
-        //   }).run();
-        style: [
-            {
-                selector: 'node',
-                style: {
+              ],
+              style: [
+                {
+                  selector: 'node',
+                  style: {
                     shape: 'circle',
                     'background-color': 'gray',
                     'content': 'data(name)',
                     'text-opacity': 0,
                     'border-width': 1,
                     'border-color': 'black'
-                }
-            },
-            {
-                selector: 'node[entity_type="Entidad gubernamental"]',
-                style: {
-                    'background-color': 'red'
-                }
-            },
-            {
-                selector: 'node[entity_type="Entidad gubernamental de salud"]',
-                style: {
-                    'background-color': 'blue'
-                }
-            },
-            {
-                selector: 'node[entity_type="Entidad internacional que lidera agendas en el sector"]',
-                style: {
-                    'background-color': 'green'
-                }
-            },
-            {
-                selector: 'node[entity_type="Entidad no gubernamental"]',
-                style: {
-                    'background-color': 'magenta'
-                }
-            },
-            {
-                selector: 'node[entity_type="Entidad no gubernamental de salud"]',
-                style: {
-                    'background-color': 'orange'
-                }
-            },
-        ],
-        layout: {
-            name: 'grid'
-        }
-    });
+                  }
+                },
+                // ... (other style rules)
+              ],
+              layout: {
+                name: 'grid'
+              }
+            });
 
-    cy.layout({
-        name: 'cose',
-        animate: false,
-        fit: true
-    }).run();
+            cy.layout({
+              name: 'cose',
+              animate: false,
+              fit: true
+            }).run();
 
-    cy.on('select', 'node', function (event) {
-        var selectedNode = event.target;
-        selectedNode.style('text-opacity', 1);
-    });
+            cy.on('select', 'node', function (event) {
+              var selectedNode = event.target;
+              selectedNode.style('text-opacity', 1);
+            });
 
-    cy.on('unselect', 'node', function (event) {
-        var unselectedNode = event.target;
-        unselectedNode.style('text-opacity', 0);
-    });
-    </script>
-<!-- </body> -->
+            cy.on('unselect', 'node', function (event) {
+              var unselectedNode = event.target;
+              unselectedNode.style('text-opacity', 0);
+            });
 
-  <!-- <body>
-    <div id="cy"></div> -->
+                      cy.on('select', 'node', function (event) {
+                        var selectedNode = event.target;
+                        selectedNode.style('text-opacity', 1);
+                      });
 
-    <span class="fa fa-bars config-toggle" id="config-toggle"></span>
-
-    <div id="config" class="config">
-
-      <div class="preamble">
-        <span class="label label-info">Cola.js/Cytoscape.js demo</span>
-
-        <p>This is a demo of a graph of gene-gene interactions that uses Cola.js for layout and Cytoscape.js for its graph model and visualisation.  Use the controls below to alter the Cola.js layout parameters.</p>
-        <p>
-          Data by <a href="http://genemania.org">GeneMANIA</a><br/>
-          Visualisation by <a href="http://js.cytoscape.org">Cytoscape.js</a><br/>
-          Layout by <a href="http://marvl.infotech.monash.edu/webcola/">Cola.js</a>
-        </p>
-      </div>
-
-    </div>
+                      cy.on('unselect', 'node', function (event) {
+                        var unselectedNode = event.target;
+                        unselectedNode.style('text-opacity', 0);
+                      });
+        </script>
   </body>
 </html>
 
