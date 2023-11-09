@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "tracer",
+    "title": "Tracer",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Cola.js/Cytoscape.js\n    \n    \n\n    \n        \n    \n    \n\n    \n    \n    \n    \n    \n\n    \n    \n    \n    \n\n    \n    \n    \n\n\n\n\n    \n    \n\n\n  \n\n    \n\n    \n\n      \n        Cola.js/Cytoscape.js demo\n\n        This is a demo of a graph of gene-gene interactions that uses Cola.js for layout and Cytoscape.js for its graph model and visualisation.  Use the controls below to alter the Cola.js layout parameters.\n        \n          Data by GeneMANIA\n          Visualisation by Cytoscape.js\n          Layout by Cola.js"
   },
   {
     "objectID": "about.html",
@@ -12,5 +12,12 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "yuca.html",
+    "href": "yuca.html",
+    "title": "Tracer",
+    "section": "",
+    "text": "Cola.js/Cytoscape.js\n    \n    \n\n    \n        \n    \n    \n\n    \n    \n    \n    \n    \n\n    \n    \n    \n    \n\n    \n    \n  \n  \n    \n\n    \n\n    \n\n      \n        Cola.js/Cytoscape.js demo\n\n        This is a demo of a graph of gene-gene interactions that uses Cola.js for layout and Cytoscape.js for its graph model and visualisation.  Use the controls below to alter the Cola.js layout parameters.\n        \n          Data by GeneMANIA\n          Visualisation by Cytoscape.js\n          Layout by Cola.js"
   }
 ]

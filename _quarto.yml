@@ -2,12 +2,12 @@ project:
   type: website
 
 website:
-  title: "tracer"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+  title: "Tracer"
+  # navbar:
+  #   left:
+  #     - href: index.html
+  #       text: Home
+  #     - about.qmd
 
 format:
   html:
